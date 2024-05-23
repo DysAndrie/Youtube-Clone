@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <title>USTube.io</title>
+    <style>
+      
+   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+  }
+
+  body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+
+  header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #fff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+  
+  main {
+    height: calc(100vh - 70px);
+    display: flex;
+    background-color: #f9f9f9;
+  }
+
+ /* Sidebar */ 
+ .side-bar {
+    height: 100%;
+    width: 17%;
+    background-color: rgb(209, 209, 209);
+    overflow-y: hidden;
+  } 
+  
+  @media (max-width: 768px) {
+    .side-bar {
+      display: none;
+    }
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+   }
+   
+   .left #menu {
+    padding: 0 7px;
+    cursor: pointer;
+   }
+
+   .search {
+    display: flex;
+   }
+   
+   .search form {
+    display: flex;
+    border: 1px solid #ddd;
+    height: 45px;
+   }
+
+   .search input {
+    width: 600px;
+    padding:10px;
+    border: 0;
+    height: 100%;
+    border-radius: 2px 0 0 2px
+  }
+  
+  input:focus {
+    outline: none;
+    border: 1px solid #ddd;
+  }
+
+  .search button {
+    height: 100%;
+    width: 60px;
+    border: none;
+  }
+   
+  .mic {
+    margin-top: 10px;
+  }
+
+  .material-icons {
+    color: rgb(100, 100, 100);
+    padding: 0 7px;
+    cursor: pointer;
+  }
+
+  .nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  
+  .nav-link {
+   display: flex;
+   align-items: center;
+   padding: 12px 25px;
+ }
+ 
+.nav-link span {
+   margin-left: 15px;
+ }
+ 
+.nav-link:hover {
+   background: #e5e5e5;
+   cursor: pointer;
+ }
+
+.active {
+   background: #e5e5e5;
+}
+
+hr {
+   height: 1px;
+   background-color: #e5e5e5;
+   border: none;
+ }
+
+ .content {
+  background-color: #f9f9f9;
+  width: 100%;
+  height: 100%;
+  padding: 15px 15px;
+  border-top: 1px solid #ddd;
+  overflow-y: scroll;
+}
+
+.videos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.video {
+  width: 270px;
+  margin-bottom: 30px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 170px;
+}
+
+.thumbnail img {
+  object-fit:cover;
+  height: 97%;
+  width: 100%;
+  
+}
+
+.thumbnail:hover{
+    transform: scale(1.05);
+            z-index: 2;
+            transition: 1s;
+            box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+
+}
+.author img {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.details {
+  display: flex;
+}
+ 
+.title {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.title h3 {
+  color: rgb(3, 3, 3);
+  line-height: 18px;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+ 
+.title a,
+span {
+  text-decoration: none;
+  color: rgb(96, 96, 96);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .side-bar {
+      display: none;
+    }
+    .search {
+      display: none;
+    }
+}
+
+  @media (max-width: 900px) {
+    .search input {
+      width: 25rem;
+    }
+}
+  
+
+    </style>
+
+  </head>
+
+  <body>
+    <header>
+        <div class="logo left">
+          <i id="menu" class="material-icons">menu</i>
+          <img src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500" width="100px" height="50px">
+        </div>
+        
+        <div class="search center">
+          <form action="">
+            <input type="text" placeholder="Search" />
+            <button><i class="material-icons">search</i></button>
+          </form>
+          <i class="material-icons mic">mic</i>
+        </div>
+        
+        <div class="icons right">
+          <i class="material-icons">videocam</i>
+          <i class="material-icons">apps</i>
+          <i class="material-icons">notifications</i>
+          <i class="material-icons display-this">account_circle</i>
+        </div>
+    </header>
+    <main>
+        <div class=”side-bar”>
+            <div class="nav">
+              <a class="nav-link active">
+                 <i class="material-icons">home</i>
+                 <span>Home</span>
+              </a>
+              <a class="nav-link">
+                 <i class="material-icons">local_fire_department</i>
+                 <span>Trending</span>
+              </a>
+              <a class="nav-link">
+                 <i class="material-icons">subscriptions</i>
+                 <span>Subscriptions</span>
+              </a>
+            </div>
+            <hr>
+           
+    <a class="nav-link">
+        <i class="material-icons">library_add_check</i>
+        <span>Library</span>
+     </a>
+     <a class="nav-link">
+        <i class="material-icons">history</i>
+        <span>History</span>
+     </a>
+     <a class="nav-link">
+        <i class="material-icons">play_arrow</i>
+        <span>Your Videos</span>
+     </a>
+     <a class="nav-link">
+        <i class="material-icons">watch_later</i>
+        <span>Watch Later</span>
+     </a>
+     <a class="nav-link">
+        <i class="material-icons">thumb_up</i>
+        <span>Liked Videos</span>
+     </a>
+            </div>
+            
+        </div>
+        <div class="content"><div class="videos">
+        
+              <div class="video">
+                 <div class="thumbnail">
+                  <a href="https://www.youtube.com/shorts/cq5M48aUQXM">
+                    <img src="https://i.ytimg.com/vi/cq5M48aUQXM/oar2.jpg?sqp=-oaymwEYCJUDENAFSFqQAgHyq4qpAwcIARUAAIhC&rs=AOn4CLCdAXkST0RQORfHbsoFAd5i2u3YMA">
+                  </a>
+                  </div>
+          
+                    <div class="details">
+                       <div class="author">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjoDE4lnR6rW05T2Jd0Dq_3FbdMlDm9DuBUA&usqp=CAU" alt="" />
+                      </div>
+                      <div class="title">
+                         <h3>
+                             University of Stirling RAK | Basketball Team 2022-23
+                          </h3>
+                          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                                 UoS RAK
+                           </a>
+                           <span> 1.7M Views • 1 Year Ago </span>
+                      </div>
+                    </div>
+         
+                  </div>
+                  <div class="video">
+                    <div class="thumbnail">
+                       <a href="https://www.youtube.com/shorts/q44nmu1vfME">
+                       <img src="https://media.licdn.com/dms/image/C4D05AQEjnF339QWnZw/videocover-high/0/1672149556899?e=2147483647&v=beta&t=gHYnhcUZQB_kYbMoLG5BuHDJkmWJ3YmdYHZ16B3B1lA">
+                    </a>
+                      </div>
+             
+                       <div class="details">
+                          <div class="author">
+                             <img src="https://i.ytimg.com/vi/7BfdNYvhXCs/mqdefault.jpg" alt="" />
+                          </div>
+                          <div class="title">
+                             <h3>
+                                 SI-MEON SOO SHOT HOOPS AT OUR UNI! 4K ULTRA HD
+                              </h3>
+                              <a href="https://www.youtube.com/watch?v=TYO3tdvXzdU">
+                                     John Mar
+                               </a>
+                               <span> 2.1B Views • 69 Seconds Ago </span>
+                          </div>
+                        </div>
+             
+                      </div>
+                       <div class="video">
+                 <div class="thumbnail">
+                  <a href="https://www.youtube.com/watch?v=JOGp2c7-cKc>">
+                    <img src="https://www.edarabia.com/wp-content/uploads/2021/12/university-stirling-rak-uae-07.jpg">
+                  </a>
+                  </div>
+          
+                    <div class="details">
+                       <div class="author">
+                          <img src="https://www.the-sun.com/wp-content/uploads/sites/6/2023/03/memphis-grizzlies-guard-ja-morant-804959514.jpg?strip=all&quality=100&w=1920&h=1440&crop=1" alt="" />
+                       </div>
+                       <div class="title">
+                          <h3>
+                              1 Filipino vs The World | D1 Volleyball League RAK
+                           </h3>
+                           <a href="">
+                            Xyril/Sean4President
+                            </a>
+                            <span> 350K Views • 9 Days Ago </span>
+                       </div>
+                     </div>
+          
+                   </div>
+                   <div class="video">
+                    <div class="thumbnail">
+                      <a href="https://www.youtube.com/watch?v=zSBoULhWRSk">
+                       <img src="https://static.nike.com/a/images/t_prod/w_1920,c_limit/30d56dcc-910f-481f-b49a-43fc0aae61ad/image.jpg">
+                      </a>
+                      </div>
+             
+                       <div class="details">
+                          <div class="author">
+                             <img src="https://topsoccerblog.com/wp-content/uploads/2022/11/gettyimages-1436556134-612x612-1.jpg" alt="" />
+                          </div>
+                          <div class="title">
+                             <h3>
+                                 Nike Killshot 2 On Feet Review 
+                              </h3>
+                              <a href="">
+                               Dys styles
+                               </a>
+                               <span> 1M Views • 2 Months Ago </span>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="video">
+                        <div class="thumbnail">
+                          <a href="https://www.youtube.com/watch?v=cR0K7uT0bhA">
+                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN1JMNv3wd4pDWHh-q_zB0M7V4nUQY4XwBJg&usqp=CAU">
+                          </a>
+                          </div>
+                 
+                           <div class="details">
+                              <div class="author">
+                                 <img src="https://i.imgflip.com/4zelmh.png" alt="" />
+                             </div>
+                             <div class="title">
+                                <h3>
+                                    KAI SOTTO binomba ang Hiroshima
+                                 </h3>
+                                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                                        PINOISE NUMBA WAN
+                                  </a>
+                                  <span> 220K Views • 6 Months Ago </span>
+                             </div>
+                           </div>
+                
+                         </div>
+                         <div class="video">
+                           <div class="thumbnail">
+                            <a href="https://www.youtube.com/watch?v=gat0s4Zl_iI">
+                              <img src="https://us-tuna-sounds-images.voicemod.net/a4fa842a-9ad1-4c8e-9287-c2fd30d07d84-1641579909423.jpg">
+                            </a>
+                            </div>
+                    
+                              <div class="details">
+                                 <div class="author">
+                                    <img src="https://us-tuna-sounds-images.voicemod.net/1ae4033d-bb58-44c8-a4a9-b6d21d1c8ca4-1668917875854.jpg">
+                                 </div>
+                                 <div class="title">
+                                    <h3>
+                                        JETT REVIVE ME 24 HOUR SPEEDRUN
+                                     </h3>
+                                     <a href="">
+                                            Liquid dev1ance 
+                                      </a>
+                                      <span> 441K Views • 5 Minutes Ago </span>
+                                 </div>
+                               </div>
+                    
+                             </div>
+                              <div class="video">
+                        <div class="thumbnail">
+                          <a href="https://www.youtube.com/shorts/IW4ee2PLqhs">
+                           <img src="https://preview.redd.it/in-hand-review-nike-dunk-low-ae86-v0-3nzay99eos6b1.jpg?width=2566&format=pjpg&auto=webp&s=80717051c4951de65ef1d3904b4ef9613fb63b4a">
+                          </a>
+                          </div>
+                 
+                           <div class="details">
+                              <div class="author">
+                                 <img src="https://www.thedigitalfix.com/wp-content/sites/thedigitalfix/2022/10/Vin-Diesel-Dom-Toretto.jpg" alt="" />
+                              </div>
+                              <div class="title">
+                                 <h3>
+                                     EXCLUSIVE! Nike AE86 Tuerno Shoes 
+                                  </h3>
+                                  <a href="">
+                                   DomPamilia
+                                   </a>
+                                   <span> 4M Views • 7 Weeks Ago </span>
+                              </div>
+                            </div>
+                 
+                          </div>
+                          <div class="video">
+                           <div class="thumbnail">
+                            <a href="https://www.youtube.com/watch?v=FQdaUv95mR8">
+                              <img src="https://i.pinimg.com/originals/d4/f4/ea/d4f4ea338ccb3df7143444811272758c.png">
+                            </a>
+                            </div>
+                    
+                              <div class="details">
+                                 <div class="author">
+                                    <img src="https://cdn.wallpapersafari.com/15/79/tnmU5b.jpg" alt="" />
+                                 </div>
+                                 <div class="title">
+                                    <h3>
+                                        HOW TO CODE HTML FOR STARTERS! SOME MADNESS, NO BADNESS, COMBINATION! 
+                                     </h3>
+                                     <a href="https://www.youtube.com/watch?v=FQdaUv95mR8">
+                                      Donald Padilla
+                                      </a>
+                                      <span> 13M Views • 9 Months Ago </span>
+                                 </div>
+                               </div>
+                               
+                            </div>
+                  </div>
+                  
+       
+           </div>
+           
+
+        </div>
+    </main>
+  </body>
+</html>
